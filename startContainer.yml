@@ -4,6 +4,8 @@
 
   tasks:
 	- name: provisiona docker slave container using our docker slave image
+	  shell: "docker stop $(docker ps -q) && docker rm $(docker ps -aq)"
+	  ignore_errors: true
 	  docker_container:
 	  	docker_host: tcp://localhost:4243
 		image: devops/ubuntu
