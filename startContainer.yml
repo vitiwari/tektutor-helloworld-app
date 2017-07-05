@@ -1,0 +1,14 @@
+---
+- name: This.playbook will start a new container out of our custom image
+  hosts: localhost
+
+  tasks:
+	- name: provisiona docker slave container using our docker slave image
+	  docker_container:
+	  	docker_host: tcp://localhost:4243
+		image: devops/ubuntu
+		hostname: ubuntu1
+		name: devops-slave-machine
+		state: started
+		ports:
+			- 2000:22
