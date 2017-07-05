@@ -11,5 +11,5 @@
 	- name: build maven Project
           shell: "mvn clean package"
 	  args:
-	    chdir: /root/home
+	     chdir: /root/home
 
