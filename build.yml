@@ -2,8 +2,13 @@
 
 - name: Build Maven project in Jenkins Docker Slave machine
   hosts: all
-
+  vars:
+	- environment:
+	   - JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
+	   - M2_HOME: /usr/share/maven
+	   - PATH: $JAVA_HOME/bin:$M2_HOME/bin:$PATH
   tasks:
 	- name: build maven Project
-          shell: "mvn clean package"
+          shell: chdir="/root/home" "mvn clean package"
+	  env: "{{ environment }}"
 
