@@ -1,0 +1,9 @@
+---
+
+- name: Build Maven project in Jenkins Docker Slave machine
+  hosts: all
+
+  tasks:
+	- name: build maven Project
+          shell: "mvn clean package"
+
